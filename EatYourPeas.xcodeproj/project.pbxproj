@@ -12,6 +12,8 @@
 		DD76E47E2164B7870032EA3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD76E47C2164B7870032EA3E /* Main.storyboard */; };
 		DD76E4802164B78B0032EA3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD76E47F2164B78B0032EA3E /* Assets.xcassets */; };
 		DD76E4832164B78B0032EA3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD76E4812164B78B0032EA3E /* LaunchScreen.storyboard */; };
+		DD76E48D2166FF780032EA3E /* I don't like peas.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DD76E48C2166FF780032EA3E /* I don't like peas.m4a */; };
+		DDEFF809216711A4009D0342 /* peaUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEFF808216711A4009D0342 /* peaUISlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		DD76E47F2164B78B0032EA3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD76E4822164B78B0032EA3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD76E4842164B78B0032EA3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD76E48C2166FF780032EA3E /* I don't like peas.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "I don't like peas.m4a"; path = "../../../Desktop/Peas/I don't like peas.m4a"; sourceTree = "<group>"; };
+		DDEFF808216711A4009D0342 /* peaUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = peaUISlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +58,9 @@
 		DD76E4772164B7870032EA3E /* EatYourPeas */ = {
 			isa = PBXGroup;
 			children = (
+				DD76E48C2166FF780032EA3E /* I don't like peas.m4a */,
 				DD76E4782164B7870032EA3E /* AppDelegate.swift */,
+				DDEFF808216711A4009D0342 /* peaUISlider.swift */,
 				DD76E47A2164B7870032EA3E /* ViewController.swift */,
 				DD76E47C2164B7870032EA3E /* Main.storyboard */,
 				DD76E47F2164B78B0032EA3E /* Assets.xcassets */,
@@ -122,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD76E48D2166FF780032EA3E /* I don't like peas.m4a in Resources */,
 				DD76E4832164B78B0032EA3E /* LaunchScreen.storyboard in Resources */,
 				DD76E4802164B78B0032EA3E /* Assets.xcassets in Resources */,
 				DD76E47E2164B7870032EA3E /* Main.storyboard in Resources */,
@@ -137,6 +144,7 @@
 			files = (
 				DD76E47B2164B7870032EA3E /* ViewController.swift in Sources */,
 				DD76E4792164B7870032EA3E /* AppDelegate.swift in Sources */,
+				DDEFF809216711A4009D0342 /* peaUISlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
