@@ -11,6 +11,9 @@ import AVFoundation
 
 class ViewController: UIViewController {
     var player: AVPlayer?
+    
+    
+
     @IBOutlet weak var number1: UIButton!
     @IBOutlet weak var number2: UIButton!
     @IBOutlet weak var number3: UIButton!
@@ -20,16 +23,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var prize: UILabel!
     @IBOutlet weak var ifYouEatPeas: UILabel!
     
+    var newPrizes: [String] = []
+    let prizes = ["8 chocolate factories", "3 zebras", "12 puddings","5 superlands", "17 swimming pools", "6 rockets", "2 baby elephants", "15 new bikes", "16 supermarkets"]
+    
   
-    var prizes = ["8 chocolate factories", "3 zebras", "12 puddings","5 superlands", "17 swimming pools", "6 rockets", "2 baby elephants", "15 new bikes", "16 supermarkets"]
-    
-
-    
     @IBAction func momButtonPressed(_ sender: UIButton) {
-       
-        let newPrizes = prizes.shuffled()[0...2]
-        let answerIndex = Int.random(in: 0...2)
         
+        newPrizes = prizes.shuffled()
+        let answerIndex = Int.random(in: 0...2)
         prize.text = newPrizes[answerIndex]
         let speech = AVSpeechUtterance(string: prize.text!)
         let synthesizer = AVSpeechSynthesizer()
@@ -55,16 +56,28 @@ class ViewController: UIViewController {
     }
     
     @IBAction func ansButtonPressed(_ sender: UIButton) {
-            if prize.text == prizes.randomElement() {
-                self.peaSlider.value = Float((self.peaSlider.value) - 1)
-            }else {
-                
-                self.peaSlider.value = Float((self.peaSlider.value) + 1)
-            }
+      
+        if sender == number1 {
+            if prize.text ==  newPrizes[0] {
+                self.peaSlider.value = Float(self.peaSlider.value + 1)}
+        else {self.peaSlider.value = Float(self.peaSlider.value - 1)}
+        } else if sender == number2 {
+            if prize.text ==  newPrizes[1] {
+                self.peaSlider.value = Float(self.peaSlider.value + 1)}
+    else {self.peaSlider.value = Float(self.peaSlider.value - 1)}
+        } else if sender == number3 {
+            if prize.text ==  newPrizes[2] {
+                self.peaSlider.value = Float(self.peaSlider.value + 1)}
+         else {self.peaSlider.value = Float(self.peaSlider.value - 1)}
+        }
+    
+        
+
         if self.peaSlider.value == 10{
              number1.isEnabled = false
              number2.isEnabled = false
-             number3.isEnabled = false
+            number3.isEnabled = false
+             mom.isEnabled = false
         ifYouEatPeas.text = "Congraturations! You don't need to eat your peas"
         let speech = AVSpeechUtterance(string: ifYouEatPeas.text!)
         let synthesizer = AVSpeechSynthesizer()
@@ -72,3 +85,4 @@ class ViewController: UIViewController {
         }
 }
 }
+
