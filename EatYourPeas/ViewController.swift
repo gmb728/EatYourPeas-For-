@@ -11,78 +11,123 @@ import AVFoundation
 
 class ViewController: UIViewController {
     var player: AVPlayer?
-    
-    
-
-    @IBOutlet weak var number1: UIButton!
-    @IBOutlet weak var number2: UIButton!
-    @IBOutlet weak var number3: UIButton!
+    var x = 0
+    var y = 0
+   
+    @IBOutlet weak var prizeSegment: UISegmentedControl!
     @IBOutlet weak var mom: UIButton!
     @IBOutlet weak var iDontLikePeas: UILabel!
     @IBOutlet weak var peaSlider: UISlider!
     @IBOutlet weak var prize: UILabel!
+   
     @IBOutlet weak var ifYouEatPeas: UILabel!
+    @IBOutlet weak var number: UILabel!
+   
+   
     
-    var newPrizes: [String] = []
-    let prizes = ["8 chocolate factories", "3 zebras", "12 puddings","5 superlands", "17 swimming pools", "6 rockets", "2 baby elephants", "15 new bikes", "16 supermarkets"]
+    @IBAction func peaSlider(_ sender: peaUISlider) {
+        sender.value.round()
+        number.text = Int(sender.value).description
+       
+    }
+   
     
-  
-    @IBAction func momButtonPressed(_ sender: UIButton) {
-        
-        newPrizes = prizes.shuffled()
-        let answerIndex = Int.random(in: 0...2)
-        prize.text = newPrizes[answerIndex]
-        let speech = AVSpeechUtterance(string: prize.text!)
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(speech)
-        
-        number1.setBackgroundImage(UIImage(named: newPrizes[0]), for: UIControl.State.normal)
-        number2.setBackgroundImage(UIImage(named: newPrizes[1]), for: UIControl.State.normal)
-        number3.setBackgroundImage(UIImage(named: newPrizes[2]), for: UIControl.State.normal)
-        iDontLikePeas.text = "I don't like peas!"
-        if let url = Bundle.main.url(forResource: "I don't like peas", withExtension: "m4a") {
-            player = AVPlayer(url: url)
-            player?.play()
+    
+    @IBAction func segmentSelected(_ sender: UISegmentedControl) {
+        for _ in 1...10 {
+        let prize = UILabel(frame: CGRect(x: x, y: y, width: 300, height: 300))
+            view.addSubview(prize)
+            x = x + 1
+            y = y + 1
         }
+        if sender.selectedSegmentIndex == 0{
+             prize.textAlignment = .left
+            if Int(peaSlider.value) == 1{
+                prize.text = (String(repeating:"🦄", count: Int(peaSlider.value)))
+                prize.text = "🦄"
+           }else if Int(peaSlider.value) == 2{
+                prize.text = (String(repeating:"🦄", count: Int(peaSlider.value)))
+                prize.text = "🦄\n🦄"
+            }else if Int(peaSlider.value) == 4{
+                      prize.text = (String(repeating:"🦄", count: Int(peaSlider.value)))
+                    prize.text = "🦄🦄\n🦄🦄"
+            }else if Int(peaSlider.value) == 9{
+                    prize.text = (String(repeating:"🦄", count: Int(peaSlider.value)))
+                  prize.text = "🦄🦄🦄\n🦄🦄🦄\n🦄🦄🦄"
+                }else if Int(peaSlider.value) == 16{
+                    prize.text = (String(repeating:"🦄", count: Int(peaSlider.value)))
+                   prize.text = "🦄🦄🦄🦄\n🦄🦄🦄🦄\n🦄🦄🦄🦄\n🦄🦄🦄🦄"
+                }else if Int(peaSlider.value) == 25{
+                    prize.text = (String(repeating:"🦄", count: Int(peaSlider.value)))
+                    prize.text = "🦄🦄🦄🦄🦄\n🦄🦄🦄🦄🦄\n🦄🦄🦄🦄🦄\n🦄🦄🦄🦄🦄\n🦄🦄🦄🦄🦄"
+            }
+        }else if sender.selectedSegmentIndex == 1{
+             prize.textAlignment = .left
+                if Int(peaSlider.value) == 1{
+                prize.text = (String(repeating:"🐘", count: Int(peaSlider.value)))
+                prize.text = "🐘"
+                   }else if Int(peaSlider.value) == 3{
+                        prize.text = (String(repeating:"🐘", count: Int(peaSlider.value)))
+                        prize.text = "🐘\n🐘🐘"
+                    }else if Int(peaSlider.value) == 6{
+                        prize.text = (String(repeating:"🐘", count: Int(peaSlider.value)))
+                        prize.text = "🐘\n🐘🐘\n🐘🐘🐘"
+                    }else if Int(peaSlider.value) == 10{
+                        prize.text = (String(repeating:"🐘", count: Int(peaSlider.value)))
+                        prize.text = "🐘\n🐘🐘\n🐘🐘🐘\n🐘🐘🐘🐘"
+                    }else if Int(peaSlider.value) == 15{
+                        prize.text = (String(repeating:"🐘", count: Int(peaSlider.value)))
+                        prize.text = "🐘\n🐘🐘\n🐘🐘🐘\n🐘🐘🐘🐘\n🐘🐘🐘🐘🐘"
+                    }else if Int(peaSlider.value) == 21{
+                        prize.text = (String(repeating:"🐘", count: Int(peaSlider.value)))
+                        prize.text = "🐘\n🐘🐘\n🐘🐘🐘\n🐘🐘🐘🐘\n🐘🐘🐘🐘🐘\n🐘🐘🐘🐘🐘🐘"
+            }
+        }else if sender.selectedSegmentIndex == 2{
+                       prize.textAlignment = .center
+            if Int(peaSlider.value) == 1{
+                prize.text = (String(repeating:"🌖", count: Int(peaSlider.value)))
+                prize.text = "🌖"
+                        }else if Int(peaSlider.value) == 3{
+                            prize.text = (String(repeating:"🌖", count: Int(peaSlider.value)))
+                            prize.text = "🌖\n🌖🌖"
+                        }else if Int(peaSlider.value) == 6{
+                            prize.text = (String(repeating:"🌖", count: Int(peaSlider.value)))
+                            prize.text = "🌖\n🌖🌖\n🌖🌖🌖"
+                        }else if Int(peaSlider.value) == 10{
+                            prize.text = (String(repeating:"🌖", count: Int(peaSlider.value)))
+                            prize.text = "🌖\n🌖🌖\n🌖🌖🌖\n🌖🌖🌖🌖"
+                        }else if Int(peaSlider.value) == 15{
+                            prize.text = (String(repeating:"🌖", count: Int(peaSlider.value)))
+                            prize.text = "🌖\n🌖🌖\n🌖🌖🌖\n🌖🌖🌖🌖\n🌖🌖🌖🌖🌖"
+                        }else if Int(peaSlider.value) == 21{
+                            prize.text = (String(repeating:"🌖", count: Int(peaSlider.value)))
+                            prize.text = "🌖\n🌖🌖\n🌖🌖🌖\n🌖🌖🌖🌖\n🌖🌖🌖🌖🌖\n🌖🌖🌖🌖🌖🌖"
+                        }
+        }else if sender.selectedSegmentIndex == 3{
+            prize.textAlignment = .center
+            if Int(peaSlider.value) == 1{
+                prize.text = (String(repeating:"🌎", count: Int(peaSlider.value)))
+                prize.text = "🌎"
+           }else if Int(peaSlider.value) == 4{
+                prize.text = (String(repeating:"🌎", count: Int(peaSlider.value)))
+                prize.text = "🌎\n🌎🌎\n🌎"
+            }else if Int(peaSlider.value) == 9{
+                prize.text = (String(repeating:"🌎", count: Int(peaSlider.value)))
+                prize.text = "🌎\n🌎🌎\n🌎🌎🌎\n🌎🌎\n🌎"
+            }else if Int(peaSlider.value) == 16{
+                prize.text = (String(repeating:"🌎", count: Int(peaSlider.value)))
+                prize.text = "🌎\n🌎🌎\n🌎🌎🌎\n🌎🌎🌎🌎\n🌎🌎🌎\n🌎🌎\n🌎"
+            }else if Int(peaSlider.value) == 25{
+                prize.text = (String(repeating:"🌎", count: Int(peaSlider.value)))
+                prize.text = "🌎\n🌎🌎\n🌎🌎🌎\n🌎🌎🌎🌎\n🌎🌎🌎🌎🌎\n🌎🌎🌎🌎\n🌎🌎🌎\n🌎🌎\n🌎"
+           
+            }
+            
+}
 }
     override func viewDidLoad() {
         super.viewDidLoad()
-        ifYouEatPeas.text = "If you eat your peas,I will buy you"
-        let speech = AVSpeechUtterance(string: ifYouEatPeas.text!)
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(speech)
-       
-        
+        peaSlider.isContinuous = false
     }
-    
-    @IBAction func ansButtonPressed(_ sender: UIButton) {
-      
-        if sender == number1 {
-            if prize.text ==  newPrizes[0] {
-                self.peaSlider.value = Float(self.peaSlider.value + 1)}
-        else {self.peaSlider.value = Float(self.peaSlider.value - 1)}
-        } else if sender == number2 {
-            if prize.text ==  newPrizes[1] {
-                self.peaSlider.value = Float(self.peaSlider.value + 1)}
-    else {self.peaSlider.value = Float(self.peaSlider.value - 1)}
-        } else if sender == number3 {
-            if prize.text ==  newPrizes[2] {
-                self.peaSlider.value = Float(self.peaSlider.value + 1)}
-         else {self.peaSlider.value = Float(self.peaSlider.value - 1)}
-        }
-    
-        
-
-        if self.peaSlider.value == 10{
-             number1.isEnabled = false
-             number2.isEnabled = false
-            number3.isEnabled = false
-             mom.isEnabled = false
-        ifYouEatPeas.text = "Congraturations! You don't need to eat your peas"
-        let speech = AVSpeechUtterance(string: ifYouEatPeas.text!)
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(speech)
-        }
-}
 }
 
